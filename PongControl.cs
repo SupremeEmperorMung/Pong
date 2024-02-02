@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Pong
 {
@@ -32,6 +33,10 @@ namespace Pong
         public const int PLAYER_PADDLE_START_Y = 150;
         public const int COMP_PADDLE_START_X = 610;
         public const int COMP_PADDLE_START_Y = 150;
+
+        public const string PADDLE_BEEP_PATH = @"C:\Users\EmperorMung\Documents\Code Projects\Pong\Pong-master\PaddleBeep.wav";
+        public const string WALL_BEEP_PATH = @"C:\Users\EmperorMung\Documents\Code Projects\Pong\Pong-master\WallBeep.wav";
+        public const string GOAL_SOUND_PATH = @"C:\Users\EmperorMung\Documents\Code Projects\Pong\Pong-master\GoalSound.wav";
 
         private Walls PongWalls;
         private Ball PongBall;
@@ -150,7 +155,7 @@ namespace Pong
                         PongBall.velX = -1 * PongBall.velX;
                         PongBall.velY = paddle.velY;
 
-                        player.SoundLocation = @"C:\Users\brand\OneDrive\Documents\Pong\PaddleBeep.wav";
+                        player.SoundLocation = PADDLE_BEEP_PATH;
                         player.Load();
                         player.Play();
                     }
@@ -167,7 +172,7 @@ namespace Pong
                         PongBall.velX = -1 * PongBall.velX;
                         PongBall.velY = paddle.velY;
 
-                        player.SoundLocation = @"C:\Users\brand\OneDrive\Documents\Pong\PaddleBeep.wav";
+                        player.SoundLocation = PADDLE_BEEP_PATH;
                         player.Load();
                         player.Play();
                     }
@@ -218,7 +223,7 @@ namespace Pong
             }
 
             if (wallWashit) {
-                player.SoundLocation = @"C:\Users\brand\OneDrive\Documents\Pong\WallBeep.wav";
+                player.SoundLocation = WALL_BEEP_PATH;
                 player.Load();
                 player.Play();
             }
@@ -232,7 +237,7 @@ namespace Pong
             {
                 compGoals++;
                 ResetBoard(playerScored);
-                player.SoundLocation = @"C:\Users\brand\OneDrive\Documents\Pong\GoalSound.wav";
+                player.SoundLocation = GOAL_SOUND_PATH;
                 player.Load();
                 player.Play();
             }
@@ -241,7 +246,7 @@ namespace Pong
                 playerScored = true;
                 playerGoals++;
                 ResetBoard(playerScored);
-                player.SoundLocation = @"C:\Users\brand\OneDrive\Documents\Pong\GoalSound.wav";
+                player.SoundLocation = GOAL_SOUND_PATH;
                 player.Load();
                 player.Play();
             }
